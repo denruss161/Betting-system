@@ -1,95 +1,71 @@
-@extends('layouts.auth')
 
-@section('main-content')
-<div class="container">
+<head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</head>
+
+<div style="position: relative"  class="container-fluid">
+    <img style="position: absolute; inset: 0; height: 100vh; width: 100%;" src="https://cdn.wallpapersafari.com/83/87/lHEdLW.jpg" alt="">
     <div class="row justify-content-center">
-        <div class="col-xl-10 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">{{ __('Login') }}</h1>
+        <div class="col-md-6">
+            <div class="mt-5 bg-dark p-4 card rounded">
+                <div class="card-body text-white ">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4 d-flex justify-between">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="remember">
+                                        <a class="text-white" href="/register">Need an account?</a>
+                                    </label>
                                 </div>
-
-                                @if ($errors->any())
-                                    <div class="alert alert-danger border-left-danger" role="alert">
-                                        <ul class="pl-4 my-2">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-
-                                <form method="POST" action="{{ route('login') }}" class="user">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('E-Mail Address') }}" value="{{ old('email') }}" required autofocus>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                <div class="row mb-0">
+                                    <div class="offset-lg-10">
+                                        <button type="submit" class="btn btn-primary">
                                             {{ __('Login') }}
                                         </button>
                                     </div>
+                                </div>
 
-                                    <hr>
-
-                                    <div class="form-group">
-                                        <button type="button" class="btn btn-github btn-user btn-block">
-                                            <i class="fab fa-github fa-fw"></i> {{ __('Login with GitHub') }}
-                                        </button>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="button" class="btn btn-twitter btn-user btn-block">
-                                            <i class="fab fa-twitter fa-fw"></i> {{ __('Login with Twitter') }}
-                                        </button>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <button type="button" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> {{ __('Login with Facebook') }}
-                                        </button>
-                                    </div>
-                                </form>
-
-                                <hr>
-
-                                @if (Route::has('password.request'))
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Password?') }}
-                                        </a>
-                                    </div>
-                                @endif
-
-                                @if (Route::has('register'))
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>
-                                    </div>
-                                @endif
+                            </div>
+                            <div>
+                                {{-- <h5>BY USING THIS SITE YOU AGREE WITH THE TERMS AND CONDITIONS AND THE PRIVACY POLICY</h5> --}}
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection

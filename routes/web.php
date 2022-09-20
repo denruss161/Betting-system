@@ -19,6 +19,34 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/cashout', function () {
+    return view('agent.cashoutsRequest');
+});
+
+Route::get('/commissions', function () {
+    return view('agent.commissionBreakdown');
+});
+
+Route::get('/points', function () {
+    return view('agent.transferPoints');
+});
+
+Route::get('/sub-agents', function () {
+    return view('agent.subAgents');
+});
+
+Route::get('/player', function () {
+    return view('agent.player');
+});
+
+Route::get('/create-sub', function () {
+    return view('agent.createSubAgent');
+});
+
+Route::get('/create-player', function () {
+    return view('agent.createPlayer');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
