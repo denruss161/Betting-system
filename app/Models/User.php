@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Models\Wallet;
+use Bavix\Wallet\Traits\HasWallets;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements Wallet
 {
+    use HasWallets;
     use HasRoles, HasFactory, Notifiable;
 
     // public static string $ROLE_ADMIN = 'admin';
@@ -27,6 +31,7 @@ class User extends Authenticatable
          'username',
          'email',
          'password',
+         'created_by'
     ];
 
     /**
@@ -72,7 +77,15 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
+    public function isAdmin() : bool {
+        return $this->hasRole('admin');
+    }
 
+    public function isAgent(): bool {
+        return $this->hasRole('agent');
+    }
 
-
+    public function createdBy(): BelongsTo {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
 }
