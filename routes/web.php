@@ -58,5 +58,13 @@ Route::group([ 'middleware'=> ['auth']], function () {
             return view('player.index');
         })->middleware(['auth'])->name('dashboard');
 
+        Route::get('/wallet', function () {
+            return view('player.wallet');
+        })->middleware(['auth'])->name('wallet');
+
+        Route::get('/arena', function () {
+            return view('player.arena');
+        })->middleware(['auth'])->name('arena');
+
 
 });

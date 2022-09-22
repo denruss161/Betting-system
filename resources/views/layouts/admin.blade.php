@@ -16,6 +16,7 @@
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="https://kit.fontawesome.com/adcd8fe147.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../player/player.css">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
@@ -41,6 +42,7 @@
             <div class="sidebar-brand-text mx-3">Agent Dashboard</div>
         </a>
 
+        {{-- @role('admin') --}}
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
         <!-- Nav Item - Dashboard -->
@@ -143,7 +145,16 @@
                 <span>{{ __('Create Player') }}</span>
             </a>
         </li>
+        {{-- @endrole --}}
 
+        @role('user')
+        <li class="nav-item">
+            <a class="nav-link text-white" href="/wallet">
+                <i class="fas fa-fw fa-hands-helping"></i>
+                <span>{{ __('Wallet') }}</span>
+            </a>
+        </li>
+        @endrole
         <li class="nav-item mb-5">
             <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
