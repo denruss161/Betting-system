@@ -27,10 +27,9 @@ class PlayerController extends Controller
         return view('agent.player.create');
     }
 
-    public function signUp(RegisterUserRequest $request)
+    public function store(RegisterUserRequest $request)
     {
-        User::create($request->validated())->assignRole('user');
+        User::create($request->validated() + ['created_by' => auth()->id()])->assignRole('user');
         return redirect()->back();
     }
-
 }

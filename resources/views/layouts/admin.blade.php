@@ -36,39 +36,12 @@
 
 <body id="page-top">
 
-<<<<<<< Updated upstream
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="/agent/home">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">Agent Dashboard</div>
-        </a>
 
-        {{-- @role('admin') --}}
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item {{ Nav::isRoute('home') }}">
-            <a class="nav-link text-white" href="{{ route('home') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>{{ __('Dashboard') }}</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Inbox') }}
-        </div>
-=======
     <!-- Page Wrapper -->
     <div id="wrapper" class="sidebar-toggled" style="background-color: rgb(34, 34, 34); position: relative">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar accordion toggled text-white" style="background-color: rgb(34, 34, 34);"
             id="accordionSidebar">
->>>>>>> Stashed changes
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="/agent/home">
@@ -144,7 +117,6 @@
                     </a>
                 </li>
 
-<<<<<<< Updated upstream
         <li class="nav-item">
             <a class="nav-link text-white" href="/agent/create-sub">
                 <i class="fas fa-fw fa-user"></i>
@@ -175,7 +147,7 @@
                 {{ __('Logout') }}
             </a>
         </li>
-=======
+
                 <div class="sidebar-heading">
                     {{ __('My Network') }}
                 </div>
@@ -198,7 +170,6 @@
                 <div class="sidebar-heading">
                     {{ __('Create User') }}
                 </div>
->>>>>>> Stashed changes
 
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/agent/create-sub">
