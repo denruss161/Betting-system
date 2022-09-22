@@ -30,7 +30,6 @@ class WalletController extends Controller
         return redirect()->back();
     }
 
-
     public function create() {
         return view('agent.player.create');
     }

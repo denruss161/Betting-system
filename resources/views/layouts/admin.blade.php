@@ -51,6 +51,8 @@
                 <div class="sidebar-brand-text mx-3">Agent Dashboard</div>
             </a>
 
+
+            @if (auth()->user()->isAdmin() || auth()->user()->isAgent())
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
@@ -60,7 +62,6 @@
                     <span>{{ __('Dashboard') }}</span></a>
             </li>
 
-            @if (auth()->user()->isAdmin() || auth()->user()->isAgent())
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -125,22 +126,8 @@
         </li>
 
         <!-- Nav Item - About -->
-        {{-- @endrole --}}
 
-        @role('user')
-        <li class="nav-item">
-            <a class="nav-link text-white" href="/wallet">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Wallet') }}</span>
-            </a>
-        </li>
-        @endrole
-        {{-- <li class="nav-item mb-5">
-            <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                {{ __('Logout') }}
-            </a>
-        </li> --}}
+
 
                 <div class="sidebar-heading">
                     {{ __('My Network') }}
@@ -180,6 +167,14 @@
                     </a>
                 </li>
             @endif
+
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/wallet">
+                    <i class="fas fa-fw fa-hands-helping"></i>
+                    <span>{{ __('Wallet') }}</span>
+                </a>
+            </li>
+
             <li class="nav-item mb-5">
                 <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

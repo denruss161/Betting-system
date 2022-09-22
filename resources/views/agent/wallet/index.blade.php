@@ -15,7 +15,7 @@
                         <div class="card  text-white" style="background-color: rgb(34, 34, 150)">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Your Points</h5>
-                                <h4 class="mb-2">0.02</h4>
+                                <h4 class="mb-2">{{ auth()->user()->balance  }}</h4>
                             </div>
                         </div>
                     </div>
