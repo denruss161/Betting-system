@@ -24,6 +24,18 @@ Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::group(['prefix' => 'admin', "middleware" => "role:admin"], function () {
+
+        Route::get('/create-agent', function () {
+            return view('admin.index');
+        });
+
+    Route::get('/agents', function () {
+        return view('admin.agents');
+    });
+
+    });
+
     Route::group(['prefix' => 'agent', "middleware" => "role:agent"], function () {
 
         Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -49,8 +61,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/wallet', \App\Http\Controllers\WalletController::class);
 
         Route::get('/home', 'HomeController@index')->name('home');
-
-
     });
 
     Route::get('/dashboard', function () {
