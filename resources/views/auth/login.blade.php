@@ -5,13 +5,13 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </head>
-
-<div style="position: relative; padding-top: 10%"  class="container-fluid" >
-    <img style="position: absolute; inset: 0; height: 100vh; width: 100%;" src="https://cdn.wallpapersafari.com/83/87/lHEdLW.jpg" alt="">
+<img style="position: absolute; inset: 0; height: 100vh; width: 100%;" src="https://i.ytimg.com/vi/mntTbM7AQ8U/maxresdefault.jpg" alt="">
+<div style="position: relative; padding-top: 0%"  class="container-fluid" >
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="mt-5 bg-dark p-4 card rounded">
-                <div class="card-body text-white ">
+            <div class="mt-5 bg-dark p-4 card rounded padding-top: 0%">
+                <img style="position: justify-center; padding-left: 30%; height: 30vh; width: 550px;" src="android-chrome-512x512.png" alt="">
+                <div class="card-body text-white">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

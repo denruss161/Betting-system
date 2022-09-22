@@ -5,7 +5,7 @@
         <div>
             <div class="card bg-dark text-white">
                 <div class="card-body">
-                    <h4>Sub Agent Network</h4>
+                    <h4>Agent Network</h4>
                     <h5 class="card-title">User List</h5>
                 </div>
             </div>

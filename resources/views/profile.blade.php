@@ -30,7 +30,7 @@
 
             <div class="card shadow mb-4 bg-dark text-white">
                 <div class="card-profile-image mt-4">
-                    <figure class="rounded-circle avatar avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px;" data-initial="{{ Auth::user()->name[0] }}"></figure>
+                    <figure class="rounded-circle avatar avatar font-weight-bold" style="font-size: 60px; height: 180px; width: 180px; text-transform: uppercase;" data-initial="{{ Auth::user()->name[0] }}"></figure>
                 </div>
                 <div class="card-body">
 
@@ -38,7 +38,6 @@
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <h5 class="font-weight-bold" style="text-transform: uppercase" >{{  Auth::user()->fullName }}</h5>
-                                <p>Agent</p>
                             </div>
                         </div>
                     </div>

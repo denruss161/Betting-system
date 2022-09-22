@@ -44,11 +44,11 @@
             id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="/agent/home">
+            <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <img src="{{ asset('favicon.ico') }}" rel="icon" type="image/ico">
                 </div>
-                <div class="sidebar-brand-text mx-3">Agent Dashboard</div>
+                <div class="sidebar-brand-image mx-3">Denshitx Dashboard</div>
             </a>
 
 

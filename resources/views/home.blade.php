@@ -7,17 +7,17 @@
         <div class="card-header" style="background-color:rgb(23, 28, 51)" >
             <div class="d-flex justify-content-between">
                 <h5 class="text-primary">
-                    Announcement
+                    📌Important Announcement📌
                 </h5>
                 <i class="fa-solid fa-circle-xmark"></i>
             </div>
         </div>
         <div class="card-body text-primary">
-          <p class="card-text">To all MA / PRIMARY / SUB AGENT's Paki update po ang inyong mga account ng inyong active Phone #
-            at Full name, Upang mas madali po ma direct contact ang mananalo sa ating mga papromo. 📌Upang hindi maantala sa pag claim
-             ng prize kaylangan po na updated ang registered contact number. To update CLICK * menu * My account * Edit profile * Save changes
-             📌Always update your raffle ticket by clicking UPDATE RAFFLE TICKETS on your dashboard account. Please let us know if updated na upang maisave ng management ang inyong mga Contact INFO. Maraming salamat at more tickets agents🔥 SGLIVE MANAGEMENT!.</p>
-        </div>
+            <p class="card-text">Good Day! Welcome to our RMX E-Sabong Live Sream Betting Platform! Enjoy!</p>
+            <p class="card-text">Scammer and User without Identity is not allowed on our website</p>
+            <br>
+            <div class="card-text center"> - RMX Development Team</div>
+          </div>
       </div>
 
       <div class="card mt-5">
@@ -37,7 +37,7 @@
                                   </div>
                                   <h6 class=" mb-2 mt-2" style="color: rgb(238, 236, 236)" >Your current wallet balance</h6>
                                   <div class="text-center">
-                                    <h1 class="card-text" style="font-weight: 800" >1100.00</h1>
+                                    <h1 class="mb-2">{{ auth()->user()->balance  }}</h1>
                                   <a href="#" class="btn btn-primary w-75 text-white">View Transaction Logs</a>
                                   </div>
                                 </div>
@@ -51,7 +51,7 @@
                                   </div>
                                   <h6 class=" mb-2 mt-2" style="color: rgb(238, 236, 236)" >Commissions that can be drawn</h6>
                                   <div class="text-center">
-                                    <h1 class="card-text" style="font-weight: 800" >93.03</h1>
+                                    <h1 class="card-text" style="font-weight: 800" >0.00</h1>
                                   <a href="#" style="background-color:rgb(23, 28, 51)" class="btn w-75 text-white">View earnings</a>
                                   </div>
                                 </div>
@@ -65,7 +65,7 @@
                                   </div>
                                   <h6 class=" mb-2 mt-2" style="color: rgb(238, 236, 236)" >Your total downline earnings.</h6>
                                   <div class="text-center">
-                                    <h1 class="card-text" style="font-weight: 800" >1100.00</h1>
+                                    <h1 class="card-text" style="font-weight: 800" >0.00</h1>
                                   <a href="#" class="btn btn-success w-75 text-white">View Commision Breakdown</a>
                                   </div>
                                 </div>
@@ -79,7 +79,7 @@
                                   </div>
                                   <h6 class=" mb-2 mt-2" style="color: rgb(238, 236, 236)" >Your total downline earnings last month.</h6>
                                   <div class="text-center">
-                                    <h1 class="card-text" style="font-weight: 800" >433.94</h1>
+                                    <h1 class="card-text" style="font-weight: 800" >0.00</h1>
                                   <a href="#" class="btn btn-dark w-75 text-white">Query Commissions earnings</a>
                                   </div>
                                 </div>
