@@ -34,7 +34,7 @@
                     <thead>
                       <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">BY</th>
+                        {{-- <th scope="col">BY</th> --}}
                         <th scope="col">SENDER</th>
                         <th scope="col">RECEIVER</th>
                         <th scope="col">AMOUNT</th>
@@ -45,16 +45,7 @@
                     <tbody>
                       <tr>
                         <th scope="row">1690128</th>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Dens16</td>
-                        <td>@344.00</td>
-                        <td>PAID</td>
-                        <td>2022-09-20 03:39:28 pm</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1690128</th>
-                        <td>Test</td>
+                        {{-- <td>Test</td> --}}
                         <td>Test</td>
                         <td>Dens16</td>
                         <td>@344.00</td>
@@ -63,7 +54,16 @@
                       </tr>
                       <tr>
                         <th scope="row">1690128</th>
+                        {{-- <td>Test</td> --}}
                         <td>Test</td>
+                        <td>Dens16</td>
+                        <td>@344.00</td>
+                        <td>PAID</td>
+                        <td>2022-09-20 03:39:28 pm</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1690128</th>
+                        {{-- <td>Test</td> --}}
                         <td>Test</td>
                         <td>Dens16</td>
                         <td>@344.00</td>
