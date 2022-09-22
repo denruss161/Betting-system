@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PlayerWalletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -58,9 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
     })->middleware(['auth'])->name('dashboard');
 
 
-   Route::get('/wallet', function () {
-       return view('player.wallet');
-   })->middleware(['auth'])->name('wallet');
+    Route::get('/wallet', [PlayerWalletController::class, 'index'])->name('player.wallet.index');
 
     Route::get('/arena', function () {
         return view('player.arena');

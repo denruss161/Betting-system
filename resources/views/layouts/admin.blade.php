@@ -52,15 +52,16 @@
             </a>
 
 
-            @if (auth()->user()->isAdmin() || auth()->user()->isAgent())
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ Nav::isRoute('home') }}">
-                <a class="nav-link text-white" href="{{ route('home') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{ __('Dashboard') }}</span></a>
-            </li>
+            @if (auth()->user()->isAdmin() ||
+                auth()->user()->isAgent())
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item {{ Nav::isRoute('home') }}">
+                    <a class="nav-link text-white" href="{{ route('home') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>{{ __('Dashboard') }}</span></a>
+                </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -118,14 +119,14 @@
                     </a>
                 </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-white" href="/agent/create-sub">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Create Sub Agents') }}</span>
-            </a>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/agent/create-sub">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>{{ __('Create Sub Agents') }}</span>
+                    </a>
+                </li>
 
-        <!-- Nav Item - About -->
+                <!-- Nav Item - About -->
 
 
 
@@ -166,26 +167,42 @@
                         <span>{{ __('Create Player') }}</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('wallet.index') }}">
+                        <i class="fas fa-fw fa-hands-helping"></i>
+                        <span>{{ __('Wallet') }}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item mb-5">
+                    <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {{ __('Logout') }}
+                    </a>
+                </li>
+
+            @else
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('player.wallet.index') }}">
+                        <i class="fas fa-fw fa-hands-helping"></i>
+                        <span>{{ __('Wallet') }}</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item mb-5">
+                    <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {{ __('Logout') }}
+                    </a>
+                </li>
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
             @endif
-
-            <li class="nav-item">
-                <a class="nav-link text-white" href="/wallet">
-                    <i class="fas fa-fw fa-hands-helping"></i>
-                    <span>{{ __('Wallet') }}</span>
-                </a>
-            </li>
-
-            <li class="nav-item mb-5">
-                <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    {{ __('Logout') }}
-                </a>
-            </li>
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
         </ul>
         <!-- End of Sidebar -->

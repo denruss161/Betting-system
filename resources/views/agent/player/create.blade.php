@@ -37,10 +37,11 @@
                         <h6 class="m-0 font-weight-bold text-white">Player's Account</h6>
                     </div>
 
-                    <div class="card-body">
+                    <form method="POST" action="{{ route('player.store') }}" class="user">
+                        @csrf
+                        <div class="card-body">
 
-                        <form method="POST" action="{{ route('player.store') }}" class="user">
-                            @csrf
+
 
                             <h6 class="heading-small mb-4 text-white">User information</h6>
 
@@ -90,16 +91,16 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                        </div>
 
-                    <!-- Button -->
-                    <div class="pl-lg-4">
-                        <div class="row mb-2">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <!-- Button -->
+                        <div class="pl-lg-4">
+                            <div class="row mb-2">
+                                <div class="col text-center">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>
