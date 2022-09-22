@@ -39,7 +39,7 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('player.sign-up') }}" class="user">
+                        <form method="POST" action="{{ route('player.store') }}" class="user">
                             @csrf
 
                             <h6 class="heading-small mb-4 text-white">User information</h6>

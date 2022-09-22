@@ -36,14 +36,20 @@
 
                 <hr style="height: 1px" class="solid text-white">
 
-                <div class="d-flex justify-content-between pb-3">
-                    <select class="form-select bg-dark text-white" aria-label="Default select example">
-                        <option selected>Select user</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <input type="text" class="form-control mx-2 bg-dark text-white" name="amount" placeholder="Amount">
+                <div>
+                    <form method="POST">
+                        @csrf
+                        <div class="d-flex justify-content-between pb-3">
+                            <select class="form-select bg-dark text-white" aria-label="Default select example" name="receiver">
+                                <option selected disabled>Select user</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                            <input type="text" class="form-control mx-2 bg-dark text-white" name="amount" placeholder="Amount">
+                        </div>
+                        <button class="btn btn-primary w-100" type="submit">Deposit Balance</button>
+                    </form>
                 </div>
             </div>
 
@@ -68,7 +74,7 @@
                             <th scope="row">{{ $recentTransfer->id }}</th>
                             <td>{{ auth()->user()->name }}</td>
                             <td>{{ $recentTransfer->to->holder->name }}</td>
-                            <td>{{ $recentTransfer->fee }}</td>
+                            <td>{{ $recentTransfer->deposit->amount }}</td>
                             <td>PAID</td>
                             <td>{{ $recentTransfer->created_at }}</td>
                         </tr>
