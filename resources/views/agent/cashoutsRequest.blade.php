@@ -2,15 +2,9 @@
 
 @section('main-content')
 
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
-</head>
-
-    <div class="d-flex justify-content-between p-4 pt-5" style="flex-wrap: wrap">
-            <div  class="card col w-25 h-50 bg-primary text-white">
+    <div class="p-4 pt-5" style="flex-wrap: wrap">
+           <div class="d-flex justify-content-center  flex-wrap flex-column">
+            <div  class="card col bg-primary text-white">
                 <div class="card-body">
                   <div class="d-flex text-align-start">
                   <i style="font-size: 25px; margin-right: 1rem" class="fa-solid fa-wallet"></i>
@@ -20,18 +14,19 @@
                     <h1 class="card-text" style="font-weight: 800" >1100.00</h1>
                   </div>
                   <div class="bg-dark h-50 text-center pt-3">
-                      <h5>New Cashouts Request ( 0 )</h5>
+                      <h5>New Cashouts Request (0)</h5>
                       <p class="text-muted">No Result :(</p>
                 </div>
                 </div>
               </div>
 
-          <div class="w-75 px-3">
+          <div    class="px-3">
             <div class="p-4 text-white">
                 <h5>Resent Cash Request</h5>
             </div>
 
-            <table id="table_id" class="table text-center text-white">
+           <div class="table-responsive">
+            <table id="table_id"  class="display table text-center text-white">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -87,12 +82,9 @@
                   </tr>
                 </tbody>
               </table>
+           </div>
           </div>
-          <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
-            $(document).ready( function () {
-    $('#table_id').DataTable();
-} );
-          </script>
+           </div>
     </div>
 
 @endsection

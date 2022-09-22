@@ -2,8 +2,8 @@
 
 @section('main-content')
 
-<div class="d-flex justify-content-between p-4 pt-5" style="flex-wrap: wrap">
-    <div class="card bg-dark w-25 h-50 p-4">
+<div class="d-flex justify-content-center p-4 pt-5 flex-wrap flex-column" style="flex-wrap: wrap">
+    <div class="card bg-dark p-4">
         <div class="card-header bg-dark text-white">
           <h5>Commission Earning</h5>
         </div>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-  <div class="w-75 px-3">
+  <div class="px-3">
     <div class="p-4 text-white">
         <h5>Commission Breakdown</h5>
     </div>

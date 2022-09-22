@@ -87,8 +87,8 @@
             </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <div class="card m-5 w-25" style="background-color: orange">
+      <div class="d-flex justify-content-center flex-wrap">
+        <div class="card m-2" style="background-color: orange">
             <div class="card-body d-flex">
               <input type="text" style="background-color: orange" class="form-control text-white" value="https://sglive888.com/register?agent=a3b98aa9b58c&applicant=true">
               <div class="ml-2">
@@ -97,7 +97,7 @@
             </div>
           </div>
 
-          <div class="card m-5 w-25 bg-success">
+          <div class="card m-2 bg-success">
             <div class="card-body d-flex">
               <input type="text" class="form-control bg-success text-white" value="https://sglive888.com/register?agent=a3b98aa9b58c&applicant=true">
               <div class="ml-2">

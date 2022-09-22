@@ -8,16 +8,10 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    public function index(): View
+    {
+        return view('auth.login');
+    }
 
     use AuthenticatesUsers;
 
@@ -38,9 +32,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function redirectTo()
+    public function username()
     {
-        session()->flash('success', 'You are logged in!');
-        return $this->redirectTo;
+        return 'username';
     }
 }

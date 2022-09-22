@@ -16,9 +16,6 @@
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="https://kit.fontawesome.com/adcd8fe147.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
@@ -32,12 +29,12 @@
 <body id="page-top">
 
 <!-- Page Wrapper -->
-<div id="wrapper" style="background-color: rgb(34, 34, 34)">
+<div id="wrapper" class="sidebar-toggled" style="background-color: rgb(34, 34, 34); position: relative">
     <!-- Sidebar -->
-    <ul class="navbar-nav sidebar accordion text-white" id="accordionSidebar">
+    <ul class="navbar-nav sidebar accordion toggled text-white"  style="background-color: rgb(34, 34, 34);" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="/agent/home">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -46,7 +43,6 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-
         <!-- Nav Item - Dashboard -->
         <li class="nav-item {{ Nav::isRoute('home') }}">
             <a class="nav-link text-white" href="{{ route('home') }}">
@@ -64,7 +60,7 @@
 
         <!-- Nav Item - Profile -->
         <li class="nav-item">
-            <a class="nav-link text-white" href="/cashout">
+            <a class="nav-link text-white" href="/agent/cashout">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Cashout Request') }}</span>
             </a>
@@ -81,7 +77,7 @@
         <!-- Nav Item - Profile -->
          <!-- Nav Item - About -->
          <li class="nav-item">
-            <a class="nav-link text-white" href="/commissions">
+            <a class="nav-link text-white" href="/agent/commissions">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Commision Breakdown') }}</span>
             </a>
@@ -96,7 +92,7 @@
 
         <!-- Nav Item - Profile -->
         <li class="nav-item">
-            <a class="nav-link text-white" href="/points">
+            <a class="nav-link text-white" href="/agent/points">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Transfer Points') }}</span>
             </a>
@@ -115,7 +111,7 @@
         </div>
 
         <li class="nav-item">
-            <a class="nav-link text-white" href="/sub-agents">
+            <a class="nav-link text-white" href="/agent/sub-agents">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Sub Agents') }}</span>
             </a>
@@ -123,7 +119,7 @@
 
         <!-- Nav Item - About -->
         <li class="nav-item">
-            <a class="nav-link text-white" href="/player">
+            <a class="nav-link text-white" href="/agent/player">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Player') }}</span>
             </a>
@@ -134,7 +130,7 @@
         </div>
 
         <li class="nav-item">
-            <a class="nav-link text-white" href="/create-sub">
+            <a class="nav-link text-white" href="/agent/create-sub">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Create Sub Agents') }}</span>
             </a>
@@ -142,16 +138,16 @@
 
         <!-- Nav Item - About -->
         <li class="nav-item">
-            <a class="nav-link text-white" href="/create-player">
+            <a class="nav-link text-white" href="/agent/create-player">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Create Player') }}</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-white" href="#">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Logout') }}</span>
+        <li class="nav-item mb-5">
+            <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                {{ __('Logout') }}
             </a>
         </li>
 
@@ -170,6 +166,13 @@
         <div id="content">
 
             <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-dark bg-dark topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </nav>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
