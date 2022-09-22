@@ -103,7 +103,7 @@
 
                 <!-- Nav Item - Profile -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/agent/points">
+                    <a class="nav-link text-white" href="/agent/wallet">
                         <i class="fas fa-fw fa-user"></i>
                         <span>{{ __('Transfer Points') }}</span>
                     </a>
@@ -125,12 +125,6 @@
         </li>
 
         <!-- Nav Item - About -->
-        <li class="nav-item">
-            <a class="nav-link text-white" href="/agent/create-player">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Create Player') }}</span>
-            </a>
-        </li>
         {{-- @endrole --}}
 
         @role('user')
@@ -141,12 +135,12 @@
             </a>
         </li>
         @endrole
-        <li class="nav-item mb-5">
+        {{-- <li class="nav-item mb-5">
             <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 {{ __('Logout') }}
             </a>
-        </li>
+        </li> --}}
 
                 <div class="sidebar-heading">
                     {{ __('My Network') }}
@@ -180,7 +174,7 @@
 
                 <!-- Nav Item - About -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/agent/create-player">
+                    <a class="nav-link text-white" href="/agent/player/create">
                         <i class="fas fa-fw fa-hands-helping"></i>
                         <span>{{ __('Create Player') }}</span>
                     </a>

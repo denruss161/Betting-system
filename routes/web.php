@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
             return view('agent.createSubAgent');
         });
 
-        Route::resource('player', PlayerController::class);
+        Route::resource('/player', PlayerController::class);
         Route::resource('/wallet', \App\Http\Controllers\WalletController::class);
 
         Route::get('/home', 'HomeController@index')->name('home');

@@ -27,5 +27,6 @@ class AgentSeeder extends Seeder
 
         // $agents = User::factory(5)->create();
             $agent->assignRole('agent');
+            $agent->deposit(10000);
     }
 }

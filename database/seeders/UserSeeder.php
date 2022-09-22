@@ -29,5 +29,6 @@ class UserSeeder extends Seeder
         ]);
 
         $user->assignRole('user');
+        $user->deposit(10000);
     }
 }
