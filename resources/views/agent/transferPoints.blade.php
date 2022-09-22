@@ -42,13 +42,13 @@
                 </div>
               </div>
 
-              <div class="mt-5 px-3">
+              <div class="w-75 mt-5 px-3">
                 <div class="text-white p-3">
                     <h5>
                         Recent Transfers
                     </h5>
                 </div>
-                <table style="display: block; overflow-x: auto; white-space: no-wrap" class="table w-full text-center text-white">
+                <table class="table text-center text-white">
                     <thead>
                       <tr>
                         <th scope="col">ID</th>

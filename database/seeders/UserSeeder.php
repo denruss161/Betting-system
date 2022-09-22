@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => 'password', // password
         ]);
+
         $user->assignRole('user');
 
 
