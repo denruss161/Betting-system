@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Models\Wallet;
+use Bavix\Wallet\Traits\HasWallets;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements Wallet
 {
+    use HasWallets;
     use HasRoles, HasFactory, Notifiable;
 
     // public static string $ROLE_ADMIN = 'admin';

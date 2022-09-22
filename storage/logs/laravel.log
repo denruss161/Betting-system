@@ -15751,3 +15751,7 @@ Stack trace:
 [stacktrace]
 #0 {main}
 "} 
+[2022-09-22 11:28:32] local.ERROR: Class App\Models\User contains 12 abstract methods and must therefore be declared abstract or implement the remaining methods (Bavix\Wallet\Interfaces\Wallet::deposit, Bavix\Wallet\Interfaces\Wallet::withdraw, Bavix\Wallet\Interfaces\Wallet::forceWithdraw, ...) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Class App\\Models\\User contains 12 abstract methods and must therefore be declared abstract or implement the remaining methods (Bavix\\Wallet\\Interfaces\\Wallet::deposit, Bavix\\Wallet\\Interfaces\\Wallet::withdraw, Bavix\\Wallet\\Interfaces\\Wallet::forceWithdraw, ...) at F:\\laravel_projects\\Betting-system\\app\\Models\\User.php:14)
+[stacktrace]
+#0 {main}
+"} 
