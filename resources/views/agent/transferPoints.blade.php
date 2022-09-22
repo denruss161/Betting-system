@@ -37,7 +37,12 @@
                 <hr style="height: 1px" class="solid text-white">
 
                 <div class="d-flex justify-content-between pb-3">
-                    <input type="text" class="form-control mx-2 bg-dark text-white" readonly value="Send Points">
+                    <select class="form-select bg-dark text-white" aria-label="Default select example">
+                        <option selected>Select user</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
                     <input type="text" class="form-control mx-2 bg-dark text-white" placeholder="Search by Username">
                 </div>
               </div>
