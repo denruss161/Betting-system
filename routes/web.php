@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAgentsController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PlayerWalletController;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes(['register' => false]);
 
+
+Route::get('/invite/create', [AdminAgentsController::class, 'referralView'])->name('admin.agents.invite');
+Route::post('/invite/{referralToken}', [AdminAgentsController::class, 'referralRegistration'])->name('admin.agents.inviteStore');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -52,6 +58,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/home', 'HomeController@index')->name('home');
 
 
+    });
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/agents/referred', [AdminAgentsController::class, 'index'])->name('admin.agents.index');
+        Route::post('/agents', [AdminAgentsController::class, 'store'])->name('admin.agents.store');
+        Route::get('/agent/create', [AdminAgentsController::class, 'create'])->name('admin.agents.create');
     });
 
     Route::get('/dashboard', function () {

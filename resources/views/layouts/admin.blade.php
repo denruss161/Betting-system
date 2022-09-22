@@ -119,6 +119,16 @@
                     </a>
                 </li>
 
+                <!-- Nav Item - Profile -->
+                @if (auth()->user()->isAdmin())
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('admin.agents.index') }}">
+                            <i class="fas fa-fw fa-user"></i>
+                            <span>{{ __('Referred Agents') }}</span>
+                        </a>
+                    </li>
+                @endif
+
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/agent/create-sub">
                         <i class="fas fa-fw fa-user"></i>
@@ -181,7 +191,6 @@
                         {{ __('Logout') }}
                     </a>
                 </li>
-
             @else
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('player.wallet.index') }}">
@@ -282,6 +291,7 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
