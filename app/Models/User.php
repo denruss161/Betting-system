@@ -8,6 +8,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
@@ -30,6 +31,7 @@ class User extends Authenticatable implements Wallet
          'username',
          'email',
          'password',
+         'created_by'
     ];
 
     /**
@@ -75,7 +77,15 @@ class User extends Authenticatable implements Wallet
         $this->attributes['password'] = bcrypt($value);
     }
 
+    public function isAdmin() : bool {
+        return $this->hasRole('admin');
+    }
 
+    public function isAgent(): bool {
+        return $this->hasRole('agent');
+    }
 
-
+    public function createdBy(): BelongsTo {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
 }

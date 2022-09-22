@@ -15,12 +15,21 @@ class PlayerController extends Controller
 
     public function index()
     {
-        return view('agent.createPlayer');
+        $players = User::query()
+            ->with('createdBy')
+            ->role('user')
+            ->paginate(10);
+        return view('agent.player.index', compact('players'));
+    }
+
+
+    public function create() {
+        return view('agent.player.create');
     }
 
     public function signUp(RegisterUserRequest $request)
     {
-        $user = User::create($request->validated())->assignRole('user');
+        User::create($request->validated())->assignRole('user');
         return redirect()->back();
     }
 

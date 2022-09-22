@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,15 +40,11 @@ Route::group([ 'middleware'=> ['auth']], function () {
         Route::get('/sub-agents', function () {
             return view('agent.subAgents');
         });
-        Route::get('/player', function () {
-            return view('agent.player');
-        });
         Route::get('/create-sub', function () {
             return view('agent.createSubAgent');
         });
 
-        Route::get('/create-player', 'PlayerController@index')->name('player');
-        Route::post('/create-player', 'PlayerController@signUp')->name('player.sign-up');
+        Route::resource('player', PlayerController::class);
 
         Route::get('/home', 'HomeController@index')->name('home');
 
@@ -57,14 +54,5 @@ Route::group([ 'middleware'=> ['auth']], function () {
         Route::get('/dashboard', function () {
             return view('player.index');
         })->middleware(['auth'])->name('dashboard');
-
-        Route::get('/wallet', function () {
-            return view('player.wallet');
-        })->middleware(['auth'])->name('wallet');
-
-        Route::get('/arena', function () {
-            return view('player.arena');
-        })->middleware(['auth'])->name('arena');
-
 
 });
