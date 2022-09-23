@@ -38,7 +38,7 @@
 
 
     <!-- Page Wrapper -->
-    <div id="wrapper" class="sidebar-toggled" style="background-color: rgb(34, 34, 34); position: relative">
+    <div id="wrapper" class="sidebar-toggled" style="background-color: rgb(34, 34, 34); position: relative; height: 130vh;">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar accordion toggled text-white" style="background-color: rgb(34, 34, 34);"
             id="accordionSidebar">
@@ -52,23 +52,22 @@
             </a>
 
 
-            @if (auth()->user()->isAdmin() || auth()->user()->isAgent())
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ Nav::isRoute('home') }}">
-                <a class="nav-link text-white" href="{{ route('home') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{ __('Dashboard') }}</span></a>
-            </li>
+            @if (auth()->user()->isAgent())
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item {{ Nav::isRoute('home') }}">
+                    <a class="nav-link text-white" href="{{ route('home') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>{{ __('Dashboard') }}</span></a>
+                </li>
 
                 <!-- Divider -->
-                <hr class="sidebar-divider">
 
                 <!-- Heading -->
-                <div class="sidebar-heading">
+                {{-- <div class="sidebar-heading">
                     {{ __('Inbox') }}
-                </div>
+                </div> --}}
 
                 <!-- Nav Item - Profile -->
                 <li class="nav-item">
@@ -82,9 +81,9 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
-                <div class="sidebar-heading">
+                {{-- <div class="sidebar-heading">
                     {{ __('Commisions') }}
-                </div>
+                </div> --}}
 
                 <!-- Nav Item - Profile -->
                 <!-- Nav Item - About -->
@@ -98,13 +97,13 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
-                <div class="sidebar-heading">
+                {{-- <div class="sidebar-heading">
                     {{ __('My Account') }}
-                </div>
+                </div> --}}
 
                 <!-- Nav Item - Profile -->
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/agent/wallet">
+                    <a class="nav-link text-white" href="{{ route('wallet.index') }}">
                         <i class="fas fa-fw fa-user"></i>
                         <span>{{ __('Transfer Points') }}</span>
                     </a>
@@ -118,20 +117,30 @@
                     </a>
                 </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-white" href="/agent/create-sub">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Create Sub Agents') }}</span>
-            </a>
-        </li>
+                <!-- Nav Item - Profile -->
+                @if (auth()->user()->isAdmin())
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('admin.agents.index') }}">
+                            <i class="fas fa-fw fa-user"></i>
+                            <span>{{ __('Referred Agents') }}</span>
+                        </a>
+                    </li>
+                @endif
 
-        <!-- Nav Item - About -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/agent/create-sub">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>{{ __('Create Sub Agents') }}</span>
+                    </a>
+                </li>
+
+                <!-- Nav Item - About -->
 
 
 
-                <div class="sidebar-heading">
+                {{-- <div class="sidebar-heading">
                     {{ __('My Network') }}
-                </div>
+                </div> --}}
 
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/agent/sub-agents">
@@ -148,9 +157,9 @@
                     </a>
                 </li>
 
-                <div class="sidebar-heading">
+                {{-- <div class="sidebar-heading">
                     {{ __('Create User') }}
-                </div>
+                </div> --}}
 
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/agent/create-sub">
@@ -166,26 +175,58 @@
                         <span>{{ __('Create Player') }}</span>
                     </a>
                 </li>
-            @endif
+
+                {{-- <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('wallet.index') }}">
+                        <i class="fas fa-fw fa-hands-helping"></i>
+                        <span>{{ __('Wallet') }}</span>
+                    </a>
+                </li> --}}
+
+                <li class="nav-item mb-5">
+                    <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {{ __('Logout') }}
+                    </a>
+                </li>
+            @else
+
+            @if (auth()->user()->isAdmin())
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ route('admin.agents.index') }}">
+                    <i class="fas fa-fw fa-hands-helping"></i>
+                    <span>{{ __('Agents List') }}</span>
+                </a>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="/wallet">
+                <a class="nav-link text-white" href="{{ route('admin.agents.create') }}">
                     <i class="fas fa-fw fa-hands-helping"></i>
-                    <span>{{ __('Wallet') }}</span>
+                    <span>{{ __('Create Agent') }}</span>
                 </a>
             </li>
+            @endif
 
-            <li class="nav-item mb-5">
-                <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    {{ __('Logout') }}
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('player.wallet.index') }}">
+                        <i class="fas fa-fw fa-hands-helping"></i>
+                        <span>{{ __('Wallet') }}</span>
+                    </a>
+                </li>
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+
+                <li class="nav-item mb-5">
+                    <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        {{ __('Logout') }}
+                    </a>
+                </li>
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            @endif
 
         </ul>
         <!-- End of Sidebar -->
@@ -213,18 +254,7 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            {{-- <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Alejandro RH {{ now()->year }}</span>
-                </div>
-            </div>
-        </footer> --}}
-            <!-- End of Footer -->
+            </div>>
 
         </div>
         <!-- End of Content Wrapper -->
@@ -265,6 +295,7 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

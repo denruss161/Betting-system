@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminAgentsController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PlayerWalletController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,22 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes(['register' => false]);
 
 
+Route::get('/invite/create', [AdminAgentsController::class, 'referralView'])->name('admin.agents.invite');
+Route::post('/invite/{referralToken}', [AdminAgentsController::class, 'referralRegistration'])->name('admin.agents.inviteStore');
+
 Route::group(['middleware' => ['auth']], function () {
-
-    Route::group(['prefix' => 'admin', "middleware" => "role:admin"], function () {
-
-        Route::get('/create-agent', function () {
-            return view('admin.index');
-        });
-
-    Route::get('/agents', function () {
-        return view('admin.agents');
-    });
-
-    });
 
     Route::group(['prefix' => 'agent', "middleware" => "role:agent"], function () {
 
@@ -63,14 +58,18 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/home', 'HomeController@index')->name('home');
     });
 
+    Route::prefix('admin')->group(function () {
+        Route::get('/agents/referred', [AdminAgentsController::class, 'index'])->name('admin.agents.index');
+        Route::post('/agents', [AdminAgentsController::class, 'store'])->name('admin.agents.store');
+        Route::get('/agent/create', [AdminAgentsController::class, 'create'])->name('admin.agents.create');
+    });
+
     Route::get('/dashboard', function () {
         return view('player.index');
     })->middleware(['auth'])->name('dashboard');
 
 
-   Route::get('/wallet', function () {
-       return view('player.wallet');
-   })->middleware(['auth'])->name('wallet');
+    Route::get('/wallet', [PlayerWalletController::class, 'index'])->name('player.wallet.index');
 
     Route::get('/arena', function () {
         return view('player.arena');
