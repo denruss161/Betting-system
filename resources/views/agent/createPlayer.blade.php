@@ -86,6 +86,13 @@
                                                     placeholder="{{ __('Password') }}" required>
                                             </div>
                                         </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label class="form-control-label text-white" for="confirm_password">Confirm password</label>
+                                                <input type="password" id="confirm_password" class="form-control" name="password_confirmation" placeholder="Confirm password"
+                                                    placeholder="{{ __('Password') }}" required>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
