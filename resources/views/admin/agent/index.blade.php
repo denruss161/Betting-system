@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('main-content')
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5" style="height: 100vh">
         <div>
             <div class="card bg-dark text-white">
                 <div class="card-body">
@@ -17,6 +17,7 @@
                     Link</button>
                 <a class="btn btn-primary" href="{{ route('admin.agents.create') }}">Create Agent</a>
             </div>
+           <div style="overflow-x: scroll;" class="">
             <table class="table text-center text-white">
                 <thead>
                     <tr>
@@ -41,6 +42,7 @@
                     @endforeach
                 </tbody>
             </table>
+           </div>
         </div>
     </div>
 
@@ -48,7 +50,7 @@
     @push('scripts')
         <script type="text/javascript">
             const button = document.querySelector('#referralBtn')
-            
+
             button.addEventListener('click', function () {
                navigator.clipboard.writeText("{{ config('app.url') }}" + "invite/create?referral_token=" + button.dataset.referral)
             })

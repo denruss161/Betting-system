@@ -25,8 +25,8 @@
                 <h5>Resent Cash Request</h5>
             </div>
 
-           <div class="table-responsive">
-            <table id="table_id"  class="display table text-center text-white">
+           <div style="overflow-x: hidden; overflow-x: scroll;" >
+            <table class="table text-center text-white">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>

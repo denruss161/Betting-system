@@ -1,16 +1,20 @@
 @extends('layouts.admin')
 
 @section('main-content')
-    <div class="container-fluid mt-5">
+    <div class="container-fluid mt-5" style="height: 100vh">
         <div>
             <div class="card bg-dark text-white">
                 <div class="card-body">
+<<<<<<< HEAD
                     <h4>Agent Network</h4>
+=======
+                    <h4>Player Network</h4>
+>>>>>>> 0c24436c3a033c1284139f755c347cae48ac294a
                     <h5 class="card-title">User List</h5>
                 </div>
             </div>
         </div>
-        <div class="mt-5">
+        <div class="mt-5" style="overflow-x: scroll">
             <table class="table text-center text-white">
                 <thead>
                     <tr>

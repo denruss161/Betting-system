@@ -56,8 +56,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/wallet', \App\Http\Controllers\WalletController::class);
 
         Route::get('/home', 'HomeController@index')->name('home');
-
-
     });
 
     Route::prefix('admin')->group(function () {

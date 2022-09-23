@@ -2,7 +2,7 @@
 
 @section('main-content')
 
-    <div class="mt-5">
+    <div class="mt-5" style="height: 100vh">
         <div class="d-flex justify-content-center flex-wrap">
             <div class="card bg-dark p-2">
                 <div class="pt-3 px-2 text-white">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                <hr style="height: 1px" class="solid text-white">
+                {{-- <hr style="height: 1px" class="solid text-white"> --}}
 
                 <div>
                     <form method="POST">
@@ -57,30 +57,32 @@
                 <div class="text-white p-3">
                     <h5>Recent Transfers</h5>
                 </div>
-                <table class="table text-center text-white">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">SENDER</th>
-                        <th scope="col">RECEIVER</th>
-                        <th scope="col">AMOUNT</th>
-                        <th scope="col">STATUS</th>
-                        <th scope="col">DATE</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($recentTransfers as $recentTransfer)
+                <div style="overflow-x: scroll">
+                    <table class="table text-center text-white">
+                        <thead>
                         <tr>
-                            <th scope="row">{{ $recentTransfer->id }}</th>
-                            <td>{{ auth()->user()->name }}</td>
-                            <td>{{ $recentTransfer->to->holder->name }}</td>
-                            <td>{{ $recentTransfer->deposit->amount }}</td>
-                            <td>PAID</td>
-                            <td>{{ $recentTransfer->created_at }}</td>
+                            <th scope="col">ID</th>
+                            <th scope="col">SENDER</th>
+                            <th scope="col">RECEIVER</th>
+                            <th scope="col">AMOUNT</th>
+                            <th scope="col">STATUS</th>
+                            <th scope="col">DATE</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        @foreach ($recentTransfers as $recentTransfer)
+                            <tr>
+                                <th scope="row">{{ $recentTransfer->id }}</th>
+                                <td>{{ auth()->user()->name }}</td>
+                                <td>{{ $recentTransfer->to->holder->name }}</td>
+                                <td>{{ $recentTransfer->deposit->amount }}</td>
+                                <td>PAID</td>
+                                <td>{{ $recentTransfer->created_at }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

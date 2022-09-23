@@ -2,8 +2,8 @@
 
 @section('main-content')
 
-<div class="d-flex justify-content-center p-4 pt-5 flex-wrap flex-column" style="flex-wrap: wrap">
-    <div class="card bg-dark p-4">
+<div class="p-4 pt-5 flex-wrap flex-column">
+    <div class="card col-lg-8 bg-dark p-4">
         <div class="card-header bg-dark text-white">
           <h5>Commission Earning</h5>
         </div>
@@ -20,54 +20,56 @@
         <h5>Commission Breakdown</h5>
     </div>
 
-    <table id="table_id" class="table text-center text-white">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">FIGHT NUMBER</th>
-            <th scope="col">PLAYER</th>
-            <th scope="col">BET AMOUNT</th>
-            <th scope="col">RATE</th>
-            <th scope="col">EARNINGS</th>
-            <th scope="col">DATE</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">55400151</th>
-            <td>172</td>
-            <td>Christ2k22</td>
-            <td>100.00</td>
-            <td>5%</td>
-            <td class="text-success">+5.00</td>
-            <td>
-                2022-09-17 12:39:39 pm
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">55400151</th>
-            <td>172</td>
-            <td>Christ2k22</td>
-            <td>100.00</td>
-            <td>5%</td>
-            <td class="text-success">+5.00</td>
-            <td>
-                2022-09-17 12:39:39 pm
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">55400151</th>
-            <td>172</td>
-            <td>Christ2k22</td>
-            <td>100.00</td>
-            <td>5%</td>
-            <td class="text-success">+5.00</td>
-            <td>
-                2022-09-17 12:39:39 pm
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div style="overflow-x: scroll;">
+        <table id="table_id" class="table text-center text-white">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">FIGHT NUMBER</th>
+                <th scope="col">PLAYER</th>
+                <th scope="col">BET AMOUNT</th>
+                <th scope="col">RATE</th>
+                <th scope="col">EARNINGS</th>
+                <th scope="col">DATE</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">55400151</th>
+                <td>172</td>
+                <td>Christ2k22</td>
+                <td>100.00</td>
+                <td>5%</td>
+                <td class="text-success">+5.00</td>
+                <td>
+                    2022-09-17 12:39:39 pm
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">55400151</th>
+                <td>172</td>
+                <td>Christ2k22</td>
+                <td>100.00</td>
+                <td>5%</td>
+                <td class="text-success">+5.00</td>
+                <td>
+                    2022-09-17 12:39:39 pm
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">55400151</th>
+                <td>172</td>
+                <td>Christ2k22</td>
+                <td>100.00</td>
+                <td>5%</td>
+                <td class="text-success">+5.00</td>
+                <td>
+                    2022-09-17 12:39:39 pm
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
   </div>
 </div>
 

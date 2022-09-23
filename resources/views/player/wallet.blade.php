@@ -27,30 +27,32 @@
                         Recent Transfers
                     </h5>
                 </div>
-                <table class="table text-center text-white">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">SENDER</th>
-                            <th scope="col">RECEIVER</th>
-                            <th scope="col">AMOUNT</th>
-                            <th scope="col">STATUS</th>
-                            <th scope="col">DATE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($recentTransfers as $recentTransfer)
+                <div style="overflow-x: scroll">
+                    <table class="table text-center text-white">
+                        <thead>
                             <tr>
-                                <th scope="row">{{ $recentTransfer->id }}</th>
-                                <td>{{ $recentTransfer->from->holder->name }}</td>
-                                <td>{{  auth()->user()->name }}</td>
-                                <td>{{  $recentTransfer->deposit->amount }}</td>
-                                <td>PAID</td>
-                                <td>{{  $recentTransfer->created_at }}</td>
+                                <th scope="col">ID</th>
+                                <th scope="col">SENDER</th>
+                                <th scope="col">RECEIVER</th>
+                                <th scope="col">AMOUNT</th>
+                                <th scope="col">STATUS</th>
+                                <th scope="col">DATE</th>
                             </tr>
-                          @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($recentTransfers as $recentTransfer)
+                                <tr>
+                                    <th scope="row">{{ $recentTransfer->id }}</th>
+                                    <td>{{ $recentTransfer->from->holder->name }}</td>
+                                    <td>{{  auth()->user()->name }}</td>
+                                    <td>{{  $recentTransfer->deposit->amount }}</td>
+                                    <td>PAID</td>
+                                    <td>{{  $recentTransfer->created_at }}</td>
+                                </tr>
+                              @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
